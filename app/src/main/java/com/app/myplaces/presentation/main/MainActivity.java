@@ -8,6 +8,7 @@ import android.view.View;
 import com.app.myplaces.R;
 import com.app.myplaces.presentation.base.BaseActivity;
 import com.app.myplaces.presentation.main.home.HomeFragment;
+import com.app.myplaces.presentation.main.home.HomePresenter;
 import com.app.myplaces.presentation.main.map.MapFragment;
 import com.app.myplaces.presentation.main.profile.ProfileFragment;
 
@@ -65,7 +66,9 @@ public class MainActivity extends BaseActivity {
             return;
         }
         HomeFragment homeFragment = HomeFragment.newInstance();
+        new HomePresenter(this, homeFragment);
         replaceFragmentToActivity(getSupportFragmentManager(), homeFragment, R.id.framelayout_container);
+
     }
 
     private void inflateMapFragment() {

@@ -48,4 +48,5 @@ ext {
     rxJava = '2.1.10'
     rxAndroid = '2.0.2'
     guavaVersion = '18.0'
+    calligraphy = '2.3.0'
 }
