@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relativelayout_bottom_bar_main"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/home_bottom_bar_height"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/imageview_bottom_bar_home"
+            android:layout_width="@dimen/home_bottom_bar_icon_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:paddingBottom="@dimen/home_bottom_bar_icon_padding"
+            android:paddingTop="@dimen/home_bottom_bar_icon_padding"
+            android:src="@drawable/selector_home" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/imageview_bottom_bar_map"
+            android:layout_width="@dimen/home_bottom_bar_icon_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:paddingBottom="@dimen/home_bottom_bar_icon_padding"
+            android:paddingTop="@dimen/home_bottom_bar_icon_padding"
+            android:src="@drawable/selector_map" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/imageview_bottom_bar_profile"
+            android:layout_width="@dimen/home_bottom_bar_icon_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:paddingBottom="@dimen/home_bottom_bar_icon_padding"
+            android:paddingTop="@dimen/home_bottom_bar_icon_padding"
+            android:src="@drawable/selector_profile" />
+    </LinearLayout>
+
+</RelativeLayout>

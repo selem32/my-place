@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "com.app.myplaces"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary= true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+//retrolambda {
+//    javaVersion JavaVersion.VERSION_1_6
+//    jvmArgs '-arg1', '-arg2'
+//    defaultMethods false
+//    incremental true
+//}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
+    implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
+    implementation "com.android.support:recyclerview-v7:$rootProject.ext.supportLibraryVersion"
+    implementation "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraint"
+    implementation "com.android.support:support-vector-drawable:$rootProject.ext.supportLibraryVersion"
+
+    //Guava
+    implementation "com.google.guava:guava:$rootProject.guavaVersion"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofit"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttp"
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttp"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.gson"
+
+    //ButterKnife
+    implementation "com.jakewharton:butterknife:$rootProject.ext.butterknife"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknife"
+
+    //Rx - Java/Android
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJava"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroid"
+
+    //Picasso
+    implementation "com.squareup.picasso:picasso:$rootProject.ext.picasso"
+
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+
+    androidTestImplementation "com.android.support.test:runner:$rootProject.ext.testRunner"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
+}
