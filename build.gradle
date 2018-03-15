@@ -40,7 +40,7 @@ ext {
     okhttp = '3.4.1'
     gson = '2.1.0'
     butterknife = '8.8.1'
-    picasso = '2.5.2'
+    picasso = '2.71828'
     spinnerloading = '1.0.0'
     junitVersion = '4.12'
     espressoVersion = '3.0.1'

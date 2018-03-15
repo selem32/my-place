@@ -2,7 +2,27 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Bottom Bar -->
     <dimen name="home_bottom_bar_icon_width">30dp</dimen>
     <dimen name="home_bottom_bar_icon_padding">15dp</dimen>
     <dimen name="home_bottom_bar_height">61dp</dimen>
+
+    <!-- Generic  -->
+    <dimen name="text_size_default">16sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+
+    <!-- Item Location -->
+    <dimen name="item_location_default_margin">8dp</dimen>
+    <dimen name="item_location_widht">156dp</dimen>
+    <dimen name="item_location_main_default_margin">16dp</dimen>
+    <dimen name="item_location_corner_radius">16dp</dimen>
+    <dimen name="item_location_card_elevation">4dp</dimen>
+    <dimen name="item_location_big_image">214dp</dimen>
+    <dimen name="item_location_small_image">136dp</dimen>
+    <dimen name="activity_detail_collapsing_height">400dp</dimen>
+    <dimen name="activity_detail_collapsing_default_margin">16dp</dimen>
+    <dimen name="activity_detail_imageview_height">300dp</dimen>
+
+
 </resources>

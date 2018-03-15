@@ -2,16 +2,14 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardview_item_service_list_main_content"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/item_location_main_default_margin"
+    android:layout_marginTop="@dimen/item_location_main_default_margin"
     android:foreground="?android:attr/selectableItemBackground"
     card_view:cardBackgroundColor="@android:color/white"
-    card_view:cardCornerRadius="16dp"
-    card_view:cardElevation="4dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:layout_marginTop="16dp"
-    android:layout_marginBottom="16dp"
+    card_view:cardCornerRadius="@dimen/item_location_corner_radius"
+    card_view:cardElevation="@dimen/item_location_card_elevation"
     card_view:cardPreventCornerOverlap="true"
     card_view:cardUseCompatPadding="true">
 
@@ -21,9 +19,13 @@
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/imageview_location_image"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:transitionName="@string/transiction_location_image"
+            android:layout_height="@dimen/item_location_big_image"
+            android:scaleType="centerCrop" />
 
+        <include layout="@layout/item_location_body" />
 
     </LinearLayout>
 

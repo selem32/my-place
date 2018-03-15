@@ -1,11 +1,27 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
+    </style>
+
+
+    <style name="TextAppearance.OpenSans.Semibold" parent="android:TextAppearance">
+        <item name="fontPath">fonts/OpenSans-Semibold.ttf</item>
+    </style>
+
+    <style name="TextAppearance.OpenSans.Regular" parent="android:TextAppearance">
+        <item name="fontPath">fonts/OpenSans-Regular.ttf</item>
+    </style>
+
+
+    <style name="TextAppearance.Title.Detail" parent="TextAppearance.AppCompat.Title">
+        <item name="fontPath">fonts/OpenSans-Light.ttf</item>
+        <item name="android:textSize">32sp</item>
     </style>
 
 </resources>

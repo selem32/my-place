@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My Places</string>
+    <string name="transiction_location_image">location_image</string>
+    <string name="transiction_location_stars">location_stars</string>
 </resources>

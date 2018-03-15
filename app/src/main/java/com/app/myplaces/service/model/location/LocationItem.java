@@ -12,6 +12,8 @@ public class LocationItem {
     @SerializedName("type")
     private String type;
 
+    private String urlImage;
+
     public Integer getId() {
         return id;
     }
@@ -26,5 +28,13 @@ public class LocationItem {
 
     public String getType() {
         return type;
+    }
+
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
     }
 }
