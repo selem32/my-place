@@ -8,19 +8,19 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.app.myplaces.R;
 import com.app.myplaces.intrastructure.Constants;
 import com.app.myplaces.intrastructure.error.OperationError;
 import com.app.myplaces.presentation.base.BaseActivity;
-import com.app.myplaces.service.model.image.ImageItem;
+import com.app.myplaces.presentation.custom.CustomStar;
 import com.app.myplaces.service.model.location.LocationItem;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,8 +35,13 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
     AppBarLayout mAppBarLayout;
     @BindView(R.id.imageview_location_image)
     ImageView mImageViewImage;
-    @BindView(R.id.viewpager_detail_photos)
-    ViewPager mViewPager;
+    @BindView(R.id.recyclerview_detail_photos)
+    RecyclerView mRecyclerViewPhotos;
+    @BindView(R.id.textview_detail_about)
+    TextView mTextviewAbout;
+    @BindView(R.id.custom_star_detail_review)
+    CustomStar mCustomStarReview;
+
 
     private DetailContract.Presenter mPresenter;
 
@@ -46,8 +51,10 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
         configCollapsing();
-
         LocationItem locationItem = getIntent().getExtras().getParcelable(Constants.ARGUMENT_LOCATION_ITEM);
+
+        mRecyclerViewPhotos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
         new DetailPresenter(this, this, locationItem);
         mPresenter.start();
     }
@@ -100,9 +107,18 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
     }
 
     @Override
-    public void configViewPager(List<ImageItem> imageItemList) {
-        mViewPager.setAdapter(new DetailPhotoPageAdapter(getSupportFragmentManager(),
-                imageItemList, new OnPhotoCallback()));
+    public void configReview(double review) {
+        mCustomStarReview.configStars(review);
+    }
+
+    @Override
+    public void configPhotoList(DetailPhotoAdapter adapter) {
+        mRecyclerViewPhotos.setAdapter(adapter);
+    }
+
+    @Override
+    public void configAbout(String source) {
+        mTextviewAbout.setText(source);
     }
 
     public static Intent getLaunchIntent(Activity activity, LocationItem locationItem) {
@@ -111,15 +127,5 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
         return intent;
     }
 
-    private class OnPhotoCallback implements OnPhotoClickListener {
 
-        @Override
-        public void onItemSelected(ImageItem imageItem) {
-            //TODO
-        }
-    }
-
-    public interface OnPhotoClickListener {
-        void onItemSelected(ImageItem imageItem);
-    }
 }

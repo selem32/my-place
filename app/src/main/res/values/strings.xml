@@ -3,4 +3,7 @@
     <string name="transiction_location_image">location_image</string>
     <string name="transiction_location_stars">location_stars</string>
     <string name="home_title">Home</string>
+    <string name="detail_title_photos">FOTOS</string>
+    <string name="detail_title_about">SOBRE</string>
+    <string name="detail_title_review">REVIEW</string>
 </resources>

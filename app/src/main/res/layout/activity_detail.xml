@@ -1,5 +1,6 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
@@ -15,13 +16,53 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/detail_default_margin_left">
 
-            <android.support.v4.view.ViewPager
-                android:id="@+id/viewpager_detail_photos"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@color/brownish_grey" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_detail_title_margin_bottom"
+                android:layout_marginTop="@dimen/activity_detail_title_margin_top"
+                android:text="@string/detail_title_photos"
+                android:textAppearance="@style/TextAppearance.OpenSans.Semibold"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_default" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview_detail_photos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_detail_title_margin_bottom"
+                android:layout_marginTop="@dimen/activity_detail_title_margin_top"
+                android:text="@string/detail_title_about"
+                android:textAppearance="@style/TextAppearance.OpenSans.Semibold"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_default" />
+
+            <TextView
+                android:id="@+id/textview_detail_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="26dp"
+                android:textAppearance="@style/TextAppearance.OpenSans.Light"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_default"
+                tools:text="TESTE" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_detail_title_margin_bottom"
+                android:layout_marginTop="@dimen/activity_detail_title_margin_top"
+                android:text="@string/detail_title_review"
+                android:textAppearance="@style/TextAppearance.OpenSans.Semibold"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_default" />
 
         </LinearLayout>
 

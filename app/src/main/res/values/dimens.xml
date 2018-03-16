@@ -32,5 +32,12 @@
     <dimen name="item_detail_photo_width">60dp</dimen>
     <dimen name="item_detail_photo_height">60dp</dimen>
     <dimen name="item_detail_photo_radius">8dp</dimen>
+    <dimen name="detail_default_margin_left">26dp</dimen>
+    <dimen name="activity_detail_title_margin_bottom">16dp</dimen>
+    <dimen name="activity_detail_title_margin_top">32dp</dimen>
+    <dimen name="detail_review_star_height">16dp</dimen>
+    <dimen name="detail_review_star_width">16dp</dimen>
+    <dimen name="detail_review_star_text_margin">10dp</dimen>
+    <dimen name="detail_review_star_margin_right">7dp</dimen>
 
 </resources>

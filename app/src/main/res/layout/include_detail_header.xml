@@ -14,6 +14,7 @@
         android:fitsSystemWindows="true"
         app:contentScrim="?attr/colorPrimary"
         app:expandedTitleMarginEnd="@dimen/activity_detail_collapsing_default_margin"
+        app:expandedTitleMarginBottom="50dp"
         app:expandedTitleMarginStart="@dimen/activity_detail_collapsing_default_margin"
         app:expandedTitleTextAppearance="@style/TextAppearance.Title.Detail"
         app:layout_scrollFlags="scroll|exitUntilCollapsed">
@@ -33,13 +34,20 @@
             app:layout_collapseMode="pin"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-        <LinearLayout
+        <com.app.myplaces.presentation.custom.CustomStar
+            android:id="@+id/custom_star_detail_review"
             android:layout_width="match_parent"
-            android:layout_height="17dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/activity_detail_collapsing_default_margin"
+            android:layout_marginLeft="@dimen/activity_detail_collapsing_default_margin"
             android:background="@android:color/transparent"
-            android:orientation="vertical"
-            android:transitionName="@string/transiction_location_stars" />
+            app:star_height="@dimen/detail_review_star_height"
+            app:star_margin_right="@dimen/detail_review_star_margin_right"
+            app:star_review_text_color="@android:color/white"
+            app:star_review_text_margin="@dimen/detail_review_star_text_margin"
+            app:star_review_text_size="@dimen/text_size_small"
+            app:star_width="@dimen/detail_review_star_width" />
 
     </android.support.design.widget.CollapsingToolbarLayout>
 

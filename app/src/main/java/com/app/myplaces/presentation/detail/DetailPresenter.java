@@ -6,6 +6,7 @@ import com.app.myplaces.business.LocationDetailBusiness;
 import com.app.myplaces.intrastructure.error.OperationError;
 import com.app.myplaces.intrastructure.util.ImageExtraUtil;
 import com.app.myplaces.intrastructure.util.ServiceListener;
+import com.app.myplaces.service.model.image.ImageItem;
 import com.app.myplaces.service.model.location.LocationItem;
 import com.app.myplaces.service.model.locationdetail.LocationDetail;
 
@@ -28,6 +29,7 @@ public class DetailPresenter implements DetailContract.Presenter {
     @Override
     public void start() {
         mView.configHeader(mLocationItem.getName(), mLocationItem.getReview(), ImageExtraUtil.getInstance().getImageLocation());
+        mView.configReview(mLocationItem.getReview());
         mView.showLoading(true);
         mLocationDetailBusiness.callServiceLocationList(mLocationItem.getId(), new LocatioDetailnRequestCallback());
     }
@@ -38,7 +40,9 @@ public class DetailPresenter implements DetailContract.Presenter {
         @Override
         public void onServiceSuccess(LocationDetail locationDetail) {
             mView.showLoading(false);
-            mView.configViewPager(locationDetail.getImageItemList());
+            mView.configPhotoList(new DetailPhotoAdapter(mContext, locationDetail.getImageItemList(),
+                    new OnPhotoCallback()));
+            mView.configAbout(locationDetail.getAbout());
             //TODO
         }
 
@@ -47,5 +51,17 @@ public class DetailPresenter implements DetailContract.Presenter {
             mView.showLoading(false);
             mView.showError(error);
         }
+    }
+
+    private class OnPhotoCallback implements OnPhotoClickListener {
+
+        @Override
+        public void onItemSelected(ImageItem imageItem) {
+            //TODO
+        }
+    }
+
+    public interface OnPhotoClickListener {
+        void onItemSelected(ImageItem imageItem);
     }
 }
