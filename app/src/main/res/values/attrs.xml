@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomStar">
+        <attr name="star_margin_right" format="dimension" />
+        <attr name="star_width" format="dimension" />
+        <attr name="star_height" format="dimension" />
+        <attr name="star_review_text_size" format="dimension" />
+        <attr name="star_review_text_margin" format="dimension" />
+        <attr name="star_review_text_color" format="color" />
+    </declare-styleable>
+
+
+</resources>

@@ -1,14 +1,14 @@
 package com.app.myplaces.presentation.main.home;
 
 import android.content.Context;
-import android.support.v4.util.Pair;
 import android.util.Log;
-import android.view.View;
+import android.widget.ImageView;
 
 import com.app.myplaces.business.LocationBusiness;
 import com.app.myplaces.intrastructure.error.OperationError;
 import com.app.myplaces.intrastructure.util.ServiceListener;
 import com.app.myplaces.service.model.location.Location;
+import com.app.myplaces.service.model.location.LocationItem;
 
 public class HomePresenter implements HomeContract.Presenter {
 
@@ -52,12 +52,12 @@ public class HomePresenter implements HomeContract.Presenter {
     private class OnItemSelectedCallback implements OnItemSelected {
 
         @Override
-        public void onItemClick(int position, Pair<View, String> p1, Pair<View, String> p2) {
-            mView.showDetail(p1, p2);
+        public void onItemClick(LocationItem locationItem, ImageView view) {
+            mView.showDetail(locationItem, view);
         }
     }
 
     public interface OnItemSelected {
-        void onItemClick(int position, Pair<View, String> p1, Pair<View, String> p2);
+        void onItemClick(LocationItem locationItem, ImageView view);
     }
 }

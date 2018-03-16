@@ -6,6 +6,7 @@ import com.app.myplaces.intrastructure.util.NetworkUtil;
 import com.app.myplaces.intrastructure.util.ServiceListener;
 import com.app.myplaces.service.Api;
 import com.app.myplaces.service.model.location.Location;
+import com.app.myplaces.service.model.locationdetail.LocationDetail;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +40,31 @@ public class LocationRepository extends BaseRepository {
 
             @Override
             public void onFailure(Call<Location> call, Throwable t) {
+                OperationError operationError = new OperationError();
+                operationError.setErrorType(Constants.ErrorType.SERVICE_ERROR);
+                callback.onServiceError(operationError);
+            }
+        });
+    }
+
+    public void requestLocationDetail(int locationId, final ServiceListener<LocationDetail> callback) {
+        OperationError networkError = checkNetwork(mNetworkUtil);
+
+        if (networkError != null) {
+            callback.onServiceError(networkError);
+            return;
+        }
+
+        Call<LocationDetail> call = mApiInstance.getPullList(locationId);
+        call.enqueue(new Callback<LocationDetail>() {
+
+            @Override
+            public void onResponse(Call<LocationDetail> call, Response<LocationDetail> response) {
+                callback.onServiceSuccess(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<LocationDetail> call, Throwable t) {
                 OperationError operationError = new OperationError();
                 operationError.setErrorType(Constants.ErrorType.SERVICE_ERROR);
                 callback.onServiceError(operationError);

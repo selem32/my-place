@@ -1,28 +1,32 @@
 package com.app.myplaces.presentation.main.home;
 
-import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.util.Pair;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.app.myplaces.R;
 import com.app.myplaces.intrastructure.error.OperationError;
+import com.app.myplaces.intrastructure.util.ImageExtraUtil;
 import com.app.myplaces.presentation.base.BaseFragment;
 import com.app.myplaces.presentation.detail.DetailActivity;
+import com.app.myplaces.service.model.location.LocationItem;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class HomeFragment extends BaseFragment implements HomeContract.View {
-
+    private final static int NUMBER_OF_COLUMNS = 2;
+    private final static int ORIENTATION = 1;
 
     @BindView(R.id.recyclerview_item_list)
     RecyclerView mRecyclerviewItemList;
@@ -41,7 +45,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         View view = inflater.inflate(R.layout.home_fragment, container, false);
         mUnbinder = ButterKnife.bind(this, view);
 
-        mToolbar.setTitle("Home");
+        mToolbar.setTitle(R.string.home_title);
         configRecyclerView();
         return view;
     }
@@ -74,13 +78,12 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     }
 
     @Override
-    public void showDetail(Pair<View, String> p1, Pair<android.view.View, String> p2) {
-        Intent intent = new Intent(getActivity(), DetailActivity.class);
-//        intent.putExtra(DetailsActivity.EXTRA_CONTACT, contact);
-        ActivityOptionsCompat options = ActivityOptionsCompat.
-                makeSceneTransitionAnimation(getActivity(), p1, p2);
-        startActivity(intent, options.toBundle());
+    public void showDetail(LocationItem locationItem, ImageView view) {
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), view,
+                ViewCompat.getTransitionName(view));
 
+        ImageExtraUtil.getInstance().setImageLocation(((BitmapDrawable) view.getDrawable()).getBitmap());
+        startActivity(DetailActivity.getLaunchIntent(getActivity(), locationItem), options.toBundle());
     }
 
     @Override
@@ -89,6 +92,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     }
 
     private void configRecyclerView() {
-        mRecyclerviewItemList.setLayoutManager(new StaggeredGridLayoutManager(2, 1));
+        mRecyclerviewItemList.setLayoutManager(new StaggeredGridLayoutManager(NUMBER_OF_COLUMNS, ORIENTATION));
     }
 }

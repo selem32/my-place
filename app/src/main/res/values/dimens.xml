@@ -20,9 +20,17 @@
     <dimen name="item_location_card_elevation">4dp</dimen>
     <dimen name="item_location_big_image">214dp</dimen>
     <dimen name="item_location_small_image">136dp</dimen>
+    <dimen name="item_location_star">10dp</dimen>
+
+    <!-- Location Detail -->
     <dimen name="activity_detail_collapsing_height">400dp</dimen>
     <dimen name="activity_detail_collapsing_default_margin">16dp</dimen>
     <dimen name="activity_detail_imageview_height">300dp</dimen>
 
+    <!-- Custom Star -->
+    <dimen name="custom_star_default_margin">3dp</dimen>
+    <dimen name="item_detail_photo_width">60dp</dimen>
+    <dimen name="item_detail_photo_height">60dp</dimen>
+    <dimen name="item_detail_photo_radius">8dp</dimen>
 
 </resources>

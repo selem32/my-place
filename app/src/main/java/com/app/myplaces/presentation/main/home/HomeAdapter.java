@@ -1,8 +1,6 @@
 package com.app.myplaces.presentation.main.home;
 
 import android.content.Context;
-import android.support.v4.util.Pair;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +11,7 @@ import android.widget.TextView;
 
 import com.app.myplaces.R;
 import com.app.myplaces.intrastructure.util.ConverterUtil;
+import com.app.myplaces.presentation.custom.CustomStar;
 import com.app.myplaces.service.model.location.Location;
 import com.app.myplaces.service.model.location.LocationItem;
 import com.squareup.picasso.Picasso;
@@ -26,7 +25,6 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context mContext;
     private HomePresenter.OnItemSelected mListerner;
     private Location mLocation;
-    private boolean firstCardIsBig;
     private int[] placeHolder = new int[]{R.color.duck_egg_blue, R.color.light_pink, R.color.creme};
     private int positionPlaceHolder;
 
@@ -71,7 +69,6 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public int getItemViewType(int position) {
         if (position % 2 == 0) {
-            firstCardIsBig = true;
             return VIEW_HOLDER_BIG;
         } else {
             return VIEW_HOLDER_SMALL;
@@ -81,18 +78,21 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private void configItemBig(ItemBigViewHolder holder, int position) {
         LocationItem locationItem = mLocation.getListLocations().get(position);
         configImage(holder.mImageviewItemLocationImage, locationItem, R.dimen.item_location_big_image);
-        setNameAndType(holder.mTextviewItemLocationName, holder.mTextviewItemLocationType, locationItem);
+        setNameAndType(holder.mTextviewItemLocationName, holder.mTextviewItemLocationType,
+                holder.mCustomStar, locationItem);
     }
 
     private void configItemSmall(ItemSmallViewHolder holder, int position) {
         LocationItem locationItem = mLocation.getListLocations().get(position);
         configImage(holder.mImageviewItemLocationImage, locationItem, R.dimen.item_location_big_image);
-        setNameAndType(holder.mTextviewItemLocationName, holder.mTextviewItemLocationType, locationItem);
+        setNameAndType(holder.mTextviewItemLocationName, holder.mTextviewItemLocationType,
+                holder.mCustomStar, locationItem);
     }
 
-    private void setNameAndType(TextView name, TextView type, LocationItem locationItem) {
+    private void setNameAndType(TextView name, TextView type, CustomStar customStar, LocationItem locationItem) {
         name.setText(locationItem.getName());
         type.setText(locationItem.getType());
+        customStar.configStars(locationItem.getReview());
     }
 
     private void configImage(ImageView imageView, LocationItem locationItem, int resourceId) {
@@ -120,15 +120,14 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         TextView mTextviewItemLocationType;
         @BindView(R.id.cardview_item_service_list_main_content)
         CardView mCardviewItemServiceListMainContent;
+        @BindView(R.id.item_location_custom_star)
+        CustomStar mCustomStar;
 
         ItemBigViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
             mCardviewItemServiceListMainContent.setOnClickListener(view1 -> {
-                Pair<View, String> p1 = Pair.create(mImageviewItemLocationImage, ViewCompat.getTransitionName(mImageviewItemLocationImage));
-                Pair<View, String> p2 = Pair.create(mImageviewItemLocationImage, ViewCompat.getTransitionName(mImageviewItemLocationImage));
-
-                mListerner.onItemClick(getAdapterPosition(), p1, p2);
+                mListerner.onItemClick(mLocation.getListLocations().get(getAdapterPosition()), mImageviewItemLocationImage);
             });
         }
     }
@@ -142,15 +141,14 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         TextView mTextviewItemLocationType;
         @BindView(R.id.cardview_item_service_list_main_content)
         CardView mCardviewItemServiceListMainContent;
+        @BindView(R.id.item_location_custom_star)
+        CustomStar mCustomStar;
 
         ItemSmallViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
             mCardviewItemServiceListMainContent.setOnClickListener(view1 -> {
-                Pair<View, String> p1 = Pair.create(mImageviewItemLocationImage, ViewCompat.getTransitionName(mImageviewItemLocationImage));
-                Pair<View, String> p2 = Pair.create(mImageviewItemLocationImage, ViewCompat.getTransitionName(mImageviewItemLocationImage));
-
-                mListerner.onItemClick(getAdapterPosition(), p1, p2);
+                mListerner.onItemClick(mLocation.getListLocations().get(getAdapterPosition()), mImageviewItemLocationImage);
             });
         }
     }

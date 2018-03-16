@@ -8,10 +8,14 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class MyPlaceApplication extends Application {
 
+    public static MyPlaceApplication instance;
+
     @Override
     public void onCreate() {
         super.onCreate();
         configCalligraphy();
+
+        instance = this;
     }
 
     private void configCalligraphy() {
@@ -20,5 +24,9 @@ public class MyPlaceApplication extends Application {
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );
+    }
+
+    public static MyPlaceApplication getInstance() {
+        return instance;
     }
 }
