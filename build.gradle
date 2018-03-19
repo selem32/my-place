@@ -51,4 +51,5 @@ ext {
     guavaVersion = '18.0'
     calligraphy = '2.3.0'
     spinnerloading = '1.0.0'
+    circularimageview = '3.0.2'
 }

@@ -26,13 +26,6 @@ android {
     }
 }
 
-//retrolambda {
-//    javaVersion JavaVersion.VERSION_1_6
-//    jvmArgs '-arg1', '-arg2'
-//    defaultMethods false
-//    incremental true
-//}
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
@@ -67,13 +60,16 @@ dependencies {
     // Calligraphy
     implementation "uk.co.chrisjenx:calligraphy:$rootProject.ext.calligraphy"
 
-    compile ('me.fahmisdk6.avatarview:avatarview:1.0@aar'){
+    //AvatarView
+    implementation ('me.fahmisdk6.avatarview:avatarview:1.0@aar'){
         transitive = true
     }
 
-    compile 'com.mikhaellopez:circularimageview:3.0.2'
+    //CircularImageView
+    implementation "com.mikhaellopez:circularimageview:$rootProject.circularimageview"
 
-    compile "com.lusfold.spinnerloading:library:$rootProject.spinnerloading"
+    //Spinner
+    implementation "com.lusfold.spinnerloading:library:$rootProject.spinnerloading"
 
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
 

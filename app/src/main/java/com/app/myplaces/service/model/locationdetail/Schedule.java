@@ -46,4 +46,8 @@ public class Schedule {
     public Days getSaturday() {
         return saturday;
     }
+
+    public String getTimeOpen(Days days) {
+        return String.format("%s às %s", days.getOpen(), days.getClose());
+    }
 }

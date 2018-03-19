@@ -2,6 +2,7 @@ package com.app.myplaces.presentation.detail;
 
 import android.content.Context;
 
+import com.app.myplaces.R;
 import com.app.myplaces.business.LocationDetailBusiness;
 import com.app.myplaces.intrastructure.error.OperationError;
 import com.app.myplaces.intrastructure.util.ImageExtraUtil;
@@ -56,13 +57,47 @@ public class DetailPresenter implements DetailContract.Presenter {
             mView.configPhone(locationDetail.getPhone());
             mView.configAddress(locationDetail.getAdress());
             mView.configReviews(locationDetail.getReviewItemList().size(), new DetailReviewAdapter(mContext, locationDetail.getReviewItemList()));
-            //TODO TIME
+            mView.configTime(generateTime(locationDetail));
         }
 
         @Override
         public void onServiceError(OperationError error) {
             mView.showLoading(false);
             mView.showError(error);
+        }
+
+        private String generateTime(LocationDetail locationDetail) {
+            String time = "";
+
+            if (locationDetail.getSchedule().getMonday() != null) {
+                time += String.format(mContext.getString(R.string.detail_time_monday), locationDetail.getSchedule().getTimeOpen(locationDetail.getSchedule().getMonday()));
+            }
+
+            if (locationDetail.getSchedule().getTuesday() != null) {
+                time += String.format(mContext.getString(R.string.detail_time_tuesday), locationDetail.getSchedule().getTimeOpen(locationDetail.getSchedule().getTuesday()));
+            }
+
+            if (locationDetail.getSchedule().getWednesday() != null) {
+                time += String.format(mContext.getString(R.string.detail_time_wednesday), locationDetail.getSchedule().getTimeOpen(locationDetail.getSchedule().getWednesday()));
+            }
+
+            if (locationDetail.getSchedule().getThursday() != null) {
+                time += String.format(mContext.getString(R.string.detail_time_thursday), locationDetail.getSchedule().getTimeOpen(locationDetail.getSchedule().getThursday()));
+            }
+
+            if (locationDetail.getSchedule().getFriday() != null) {
+                time += String.format(mContext.getString(R.string.detail_time_friday), locationDetail.getSchedule().getTimeOpen(locationDetail.getSchedule().getFriday()));
+            }
+
+            if (locationDetail.getSchedule().getSaturday() != null) {
+                time += String.format(mContext.getString(R.string.detail_time_saturday), locationDetail.getSchedule().getTimeOpen(locationDetail.getSchedule().getSaturday()));
+            }
+
+            if (locationDetail.getSchedule().getSunday() != null) {
+                time += String.format(mContext.getString(R.string.detail_time_sunday), locationDetail.getSchedule().getTimeOpen(locationDetail.getSchedule().getSunday()));
+            }
+
+            return time;
         }
     }
 
