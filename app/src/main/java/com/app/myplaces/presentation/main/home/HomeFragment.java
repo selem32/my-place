@@ -22,6 +22,7 @@ import com.app.myplaces.intrastructure.util.ScreenUtil;
 import com.app.myplaces.presentation.base.BaseActivity;
 import com.app.myplaces.presentation.base.BaseFragment;
 import com.app.myplaces.presentation.detail.DetailActivity;
+import com.app.myplaces.presentation.dialog.ErrorDialogFragment;
 import com.app.myplaces.service.model.location.LocationItem;
 
 import butterknife.BindView;
@@ -86,8 +87,16 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
 
     @Override
     public void showError(OperationError error) {
-        ((BaseActivity) getActivity()).showError(error, () -> {
-            mPresenter.callPullListService();
+        ((BaseActivity) getActivity()).showError(error, new ErrorDialogFragment.MyOnErrorClick() {
+            @Override
+            public void clickTryAgain() {
+                mPresenter.callPullListService();
+            }
+
+            @Override
+            public void onBackPressed() {
+                //do nothing
+            }
         });
     }
 

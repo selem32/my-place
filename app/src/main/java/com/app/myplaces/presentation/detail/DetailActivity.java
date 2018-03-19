@@ -24,6 +24,7 @@ import com.app.myplaces.intrastructure.error.OperationError;
 import com.app.myplaces.presentation.base.BaseActivity;
 import com.app.myplaces.presentation.custom.CustomDetailInformation;
 import com.app.myplaces.presentation.custom.CustomStar;
+import com.app.myplaces.presentation.dialog.ErrorDialogFragment;
 import com.app.myplaces.service.model.location.LocationItem;
 import com.lusfold.spinnerloading.SpinnerLoading;
 
@@ -139,8 +140,16 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
 
     @Override
     public void showError(OperationError error) {
-        showError(error, () -> {
-            mPresenter.callService();
+        showError(error, new ErrorDialogFragment.MyOnErrorClick() {
+            @Override
+            public void clickTryAgain() {
+                mPresenter.callService();
+            }
+
+            @Override
+            public void onBackPressed() {
+                DetailActivity.this.onBackPressed();
+            }
         });
     }
 

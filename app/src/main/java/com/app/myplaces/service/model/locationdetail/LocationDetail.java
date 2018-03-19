@@ -19,7 +19,7 @@ public class LocationDetail {
     @SerializedName("about")
     private String about;
     @SerializedName("schedule")
-    private List<Schedule> schedule = null;
+    private Schedule schedule;
     @SerializedName("phone")
     private String phone;
     @SerializedName("adress")
@@ -47,7 +47,7 @@ public class LocationDetail {
         return about;
     }
 
-    public List<Schedule> getSchedule() {
+    public Schedule getSchedule() {
         return schedule;
     }
 

@@ -38,6 +38,18 @@ public class ErrorDialogFragment extends DialogFragment {
     }
 
     @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        return new Dialog(getActivity(), getTheme()) {
+            @Override
+            public void onBackPressed() {
+                if (listener != null) {
+                    listener.onBackPressed();
+                }
+            }
+        };
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dialog_erro, null);
         unbinder = ButterKnife.bind(this, view);
@@ -85,6 +97,8 @@ public class ErrorDialogFragment extends DialogFragment {
 
     public interface MyOnErrorClick {
         void clickTryAgain();
+
+        void onBackPressed();
     }
 
 
