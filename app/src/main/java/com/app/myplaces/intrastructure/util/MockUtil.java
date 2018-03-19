@@ -5,6 +5,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.app.myplaces.service.model.image.ImageList;
+import com.app.myplaces.service.model.review.Review;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -21,6 +22,15 @@ public final class MockUtil {
         String fileName = "json/images.json";
         String jsonOutputEffectuation = writeStrFileAsset(context, fileName);
         Type type = new TypeToken<ImageList>() {
+        }.getType();
+        return gson.fromJson(jsonOutputEffectuation, type);
+    }
+
+    public Review getReviewList(Context context) {
+        Gson gson = new Gson();
+        String fileName = "json/reviews.json";
+        String jsonOutputEffectuation = writeStrFileAsset(context, fileName);
+        Type type = new TypeToken<Review>() {
         }.getType();
         return gson.fromJson(jsonOutputEffectuation, type);
     }

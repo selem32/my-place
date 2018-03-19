@@ -8,7 +8,6 @@ import com.app.myplaces.intrastructure.util.NetworkUtil;
 import com.app.myplaces.intrastructure.util.ServiceListener;
 import com.app.myplaces.service.Api;
 import com.app.myplaces.service.ApiInstance;
-import com.app.myplaces.service.model.image.ImageList;
 import com.app.myplaces.service.model.locationdetail.LocationDetail;
 import com.app.myplaces.service.repository.LocationRepository;
 
@@ -43,8 +42,8 @@ public class LocationDetailBusiness {
 
         private void processRestult(LocationDetail locationDetail) {
             MockUtil mockUtil = new MockUtil();
-            ImageList imageList = mockUtil.getImageList(mContext);
-            locationDetail.setImageItemList(imageList.getImages());
+            locationDetail.setImageItemList(mockUtil.getImageList(mContext).getImages());
+            locationDetail.setReviewItemList(mockUtil.getReviewList(mContext).getReviews());
         }
 
     }

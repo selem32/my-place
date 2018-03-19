@@ -16,6 +16,14 @@ public class DetailContract {
         void configAbout(String source);
 
         void configReview(double review);
+
+        void configTime(String time);
+
+        void configAddress(String location);
+
+        void configPhone(String phone);
+
+        void configReviews(int qtde, DetailReviewAdapter adapter);
     }
 
     interface Presenter extends BasePresenter {

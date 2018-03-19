@@ -8,4 +8,7 @@
     <color name="light_pink">#ffdae1</color>
     <color name="creme">#fcffb1</color>
     <color name="black">#333333</color>
+    <color name="pinkish_grey">#cccccc</color>
+    <color name="warm_grey">#cccccc</color>
+    <color name="aqua_green">#16e5a3</color>
 </resources>

@@ -9,5 +9,9 @@
         <attr name="star_review_text_color" format="color" />
     </declare-styleable>
 
+    <declare-styleable name="CustomDetailInformation">
+        <attr name="detail_icon" format="integer" />
+    </declare-styleable>
+
 
 </resources>

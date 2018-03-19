@@ -12,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,11 +20,13 @@ import com.app.myplaces.R;
 import com.app.myplaces.intrastructure.Constants;
 import com.app.myplaces.intrastructure.error.OperationError;
 import com.app.myplaces.presentation.base.BaseActivity;
+import com.app.myplaces.presentation.custom.CustomDetailInformation;
 import com.app.myplaces.presentation.custom.CustomStar;
 import com.app.myplaces.service.model.location.LocationItem;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class DetailActivity extends BaseActivity implements DetailContract.View {
 
@@ -41,6 +44,16 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
     TextView mTextviewAbout;
     @BindView(R.id.custom_star_detail_review)
     CustomStar mCustomStarReview;
+    @BindView(R.id.custom_detail_information_time)
+    CustomDetailInformation mCustomDetailInformationTime;
+    @BindView(R.id.custom_detail_information_phone)
+    CustomDetailInformation mCustomDetailInformationPhone;
+    @BindView(R.id.custom_detail_information_location)
+    CustomDetailInformation mCustomDetailInformationLocation;
+    @BindView(R.id.recyclerview_detail_reviews)
+    RecyclerView mRecyclerviewReviews;
+    @BindView(R.id.textview_detail_review_qtde)
+    TextView mTextviewReviewQtde;
 
 
     private DetailContract.Presenter mPresenter;
@@ -54,6 +67,8 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
         LocationItem locationItem = getIntent().getExtras().getParcelable(Constants.ARGUMENT_LOCATION_ITEM);
 
         mRecyclerViewPhotos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        mRecyclerviewReviews.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        mRecyclerviewReviews.setNestedScrollingEnabled(false);
 
         new DetailPresenter(this, this, locationItem);
         mPresenter.start();
@@ -121,6 +136,27 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
         mTextviewAbout.setText(source);
     }
 
+    @Override
+    public void configTime(String time) {
+        mCustomDetailInformationTime.setText(time);
+    }
+
+    @Override
+    public void configAddress(String location) {
+        mCustomDetailInformationLocation.setText(location);
+    }
+
+    @Override
+    public void configPhone(String phone) {
+        mCustomDetailInformationPhone.setText(phone);
+    }
+
+    @Override
+    public void configReviews(int qtde, DetailReviewAdapter adapter) {
+        mRecyclerviewReviews.setAdapter(adapter);
+        mTextviewReviewQtde.setText(String.format("ver todos os %d reviews", qtde));
+    }
+
     public static Intent getLaunchIntent(Activity activity, LocationItem locationItem) {
         Intent intent = new Intent(activity, DetailActivity.class);
         intent.putExtra(Constants.ARGUMENT_LOCATION_ITEM, locationItem);
@@ -128,4 +164,18 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
     }
 
 
+    @OnClick({R.id.custom_detail_information_time, R.id.custom_detail_information_phone, R.id.custom_detail_information_location})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.custom_detail_information_time:
+                //TODO
+                break;
+            case R.id.custom_detail_information_phone:
+                //TODO
+                break;
+            case R.id.custom_detail_information_location:
+                //TODO
+                break;
+        }
+    }
 }

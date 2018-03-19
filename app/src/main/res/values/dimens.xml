@@ -11,6 +11,7 @@
     <!-- Generic  -->
     <dimen name="text_size_default">16sp</dimen>
     <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_very_small">12sp</dimen>
 
     <!-- Item Location -->
     <dimen name="item_location_default_margin">8dp</dimen>
@@ -39,5 +40,16 @@
     <dimen name="detail_review_star_width">16dp</dimen>
     <dimen name="detail_review_star_text_margin">10dp</dimen>
     <dimen name="detail_review_star_margin_right">7dp</dimen>
+    <dimen name="custom_detail_information_text_margin_left">10dp</dimen>
+    <dimen name="detail_time_margin_top">18dp</dimen>
+    <dimen name="detail_phone_margin_top">22dp</dimen>
+    <dimen name="detail_location_margin_top">19dp</dimen>
+    <dimen name="item_review_margin_bottom">36dp</dimen>
+    <dimen name="item_review_avatar_size">50dp</dimen>
+    <dimen name="item_review_avatar_radius">30dp</dimen>
+    <dimen name="item_review_avatar_text_size">10sp</dimen>
+    <dimen name="item_review_info_contet_margin_left">16dp</dimen>
+    <dimen name="item_review_info_contet_margin_right">26dp</dimen>
+    <dimen name="item_review_title_margin_top">7dp</dimen>
 
 </resources>

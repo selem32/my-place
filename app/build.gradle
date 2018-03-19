@@ -65,7 +65,11 @@ dependencies {
     implementation "com.squareup.picasso:picasso:$rootProject.ext.picasso"
 
     // Calligraphy
-    compile "uk.co.chrisjenx:calligraphy:$rootProject.ext.calligraphy"
+    implementation "uk.co.chrisjenx:calligraphy:$rootProject.ext.calligraphy"
+
+    compile ('me.fahmisdk6.avatarview:avatarview:1.0@aar'){
+        transitive = true
+    }
 
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
 

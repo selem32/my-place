@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/item_review_margin_bottom"
+    android:orientation="horizontal">
+
+    <me.fahmisdk6.avatarview.AvatarView
+        android:id="@+id/imageview_item_review"
+        android:layout_width="@dimen/item_review_avatar_size"
+        android:layout_height="@dimen/item_review_avatar_size"
+        app:avBgTextColor="@color/aqua_green"
+        app:avCornerRadius="@dimen/item_review_avatar_radius"
+        app:avFont="fonts/OpenSans-Regular.ttf"
+        app:avTextColor="@android:color/white"
+        app:avTextSize="@dimen/item_review_avatar_text_size" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/item_review_info_contet_margin_left"
+        android:layout_marginRight="@dimen/item_review_info_contet_margin_right"
+        android:orientation="vertical">
+
+        <com.app.myplaces.presentation.custom.CustomStar
+            android:id="@+id/item_review_review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent" />
+
+        <TextView
+            android:id="@+id/textview_item_review_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_review_title_margin_top"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_default"
+            tools:text="Fantástico!!!" />
+
+        <TextView
+            android:id="@+id/textview_item_review_opinion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/brownish_grey"
+            android:textSize="@dimen/text_size_small"
+            tools:text="Tortas deliciosas. Os waffles também estavam muito bons. Equipe muito atenciosa. :)" />
+
+        <TextView
+            android:id="@+id/textview_item_review_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/warm_grey"
+            android:textSize="@dimen/text_size_very_small"
+            tools:text="Tomás Montenegro, Belo Horizonte - MG" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

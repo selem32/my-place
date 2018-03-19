@@ -103,7 +103,13 @@ public class CustomStar extends LinearLayout {
     }
 
     public void configStars(double review) {
-        mCustomStarReview.setText(String.format(Locale.US, "%.2f", review));
+        configStars(review, true);
+    }
+
+    public void configStars(double review, boolean showValue) {
+        if (showValue) {
+            mCustomStarReview.setText(String.format(Locale.US, "%.2f", review));
+        }
 
         if (review >= 0.5
                 && review < 1.5) {

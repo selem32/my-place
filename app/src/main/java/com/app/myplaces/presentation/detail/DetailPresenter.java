@@ -43,7 +43,10 @@ public class DetailPresenter implements DetailContract.Presenter {
             mView.configPhotoList(new DetailPhotoAdapter(mContext, locationDetail.getImageItemList(),
                     new OnPhotoCallback()));
             mView.configAbout(locationDetail.getAbout());
-            //TODO
+            mView.configPhone(locationDetail.getPhone());
+            mView.configAddress(locationDetail.getAdress());
+            mView.configReviews(locationDetail.getReviewItemList().size(), new DetailReviewAdapter(mContext, locationDetail.getReviewItemList()));
+            //TODO REVIEW AND TIME
         }
 
         @Override
