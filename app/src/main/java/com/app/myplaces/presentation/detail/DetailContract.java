@@ -24,9 +24,13 @@ public class DetailContract {
         void configPhone(String phone);
 
         void configReviews(int qtde, DetailReviewAdapter adapter);
+
+        void sharePlace(String about, String title, String location);
     }
 
     interface Presenter extends BasePresenter {
+        void shareItem();
 
+        void callService();
     }
 }

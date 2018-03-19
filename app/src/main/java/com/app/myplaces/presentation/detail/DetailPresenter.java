@@ -16,13 +16,13 @@ public class DetailPresenter implements DetailContract.Presenter {
     private DetailContract.View mView;
     private LocationItem mLocationItem;
     private LocationDetailBusiness mLocationDetailBusiness;
+    private LocationDetail mLocationDetail;
 
     public DetailPresenter(Context mContext, DetailContract.View mView, LocationItem mLocationItem) {
         this.mContext = mContext;
         this.mView = mView;
         this.mLocationItem = mLocationItem;
         mView.setPresenter(this);
-
         mLocationDetailBusiness = new LocationDetailBusiness(mContext);
     }
 
@@ -30,15 +30,25 @@ public class DetailPresenter implements DetailContract.Presenter {
     public void start() {
         mView.configHeader(mLocationItem.getName(), mLocationItem.getReview(), ImageExtraUtil.getInstance().getImageLocation());
         mView.configReview(mLocationItem.getReview());
+        callService();
+    }
+
+    @Override
+    public void callService() {
         mView.showLoading(true);
         mLocationDetailBusiness.callServiceLocationList(mLocationItem.getId(), new LocatioDetailnRequestCallback());
     }
 
+    @Override
+    public void shareItem() {
+        mView.sharePlace(mLocationDetail.getAbout(), mLocationDetail.getName(), mLocationDetail.getAdress());
+    }
 
     private class LocatioDetailnRequestCallback extends ServiceListener<LocationDetail> {
 
         @Override
         public void onServiceSuccess(LocationDetail locationDetail) {
+            mLocationDetail = locationDetail;
             mView.showLoading(false);
             mView.configPhotoList(new DetailPhotoAdapter(mContext, locationDetail.getImageItemList(),
                     new OnPhotoCallback()));
@@ -46,7 +56,7 @@ public class DetailPresenter implements DetailContract.Presenter {
             mView.configPhone(locationDetail.getPhone());
             mView.configAddress(locationDetail.getAdress());
             mView.configReviews(locationDetail.getReviewItemList().size(), new DetailReviewAdapter(mContext, locationDetail.getReviewItemList()));
-            //TODO REVIEW AND TIME
+            //TODO TIME
         }
 
         @Override

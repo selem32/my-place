@@ -1,7 +1,6 @@
 package com.app.myplaces.presentation.main.home;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.ImageView;
 
 import com.app.myplaces.business.LocationBusiness;
@@ -32,6 +31,7 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void callPullListService() {
+        mView.showLoading(true);
         mLocationBusiness.callServiceLocationList(mRequestLocationsCallback);
     }
 
@@ -39,13 +39,14 @@ public class HomePresenter implements HomeContract.Presenter {
 
         @Override
         public void onServiceSuccess(Location location) {
+            mView.showLoading(false);
             mView.showLocationList(new HomeAdapter(mContext, location, new OnItemSelectedCallback()));
         }
 
         @Override
         public void onServiceError(OperationError error) {
-            //TODO
-            Log.e("TESTE", "FALHA");
+            mView.showLoading(false);
+            mView.showError(error);
         }
     }
 

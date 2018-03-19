@@ -10,6 +10,12 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
+    <style name="ButtonAppTheme" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/background_button_default</item>
+        <item name="android:textColor">@drawable/text_button_color</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_height">@dimen/button_height_default</item>
+    </style>
 
     <style name="TextAppearance.OpenSans.Semibold" parent="android:TextAppearance">
         <item name="fontPath">fonts/OpenSans-Semibold.ttf</item>

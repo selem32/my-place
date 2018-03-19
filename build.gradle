@@ -50,4 +50,5 @@ ext {
     rxAndroid = '2.0.2'
     guavaVersion = '18.0'
     calligraphy = '2.3.0'
+    spinnerloading = '1.0.0'
 }

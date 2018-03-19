@@ -13,7 +13,8 @@
     <dimen name="text_size_small">14sp</dimen>
     <dimen name="text_size_very_small">12sp</dimen>
     <dimen name="text_size_big">36sp</dimen>
-
+    <dimen name="text_giant_size">100sp</dimen>
+    <dimen name="text_large_size">20sp</dimen>
 
     <!-- Item Location -->
     <dimen name="item_location_default_margin">8dp</dimen>
@@ -76,6 +77,12 @@
     <dimen name="profile_avatar_margin_right">-135dp</dimen>
     <dimen name="profile_avatar_button_follow_height">36dp</dimen>
     <dimen name="profile_avatar_button_follow_margin_top">32dp</dimen>
+
+    <!-- Dialog Error -->
+    <dimen name="button_radium_default">30dp</dimen>
+    <dimen name="button_stroke_default">3dp</dimen>
+    <dimen name="button_height_default">48dp</dimen>
+    <dimen name="dialog_error_defaul_margin">19dp</dimen>
 
 
 </resources>

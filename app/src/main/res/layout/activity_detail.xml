@@ -13,97 +13,111 @@
         android:background="@android:color/white"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingLeft="@dimen/activity_detail_default_margin_left">
+            android:layout_height="match_parent">
 
-            <TextView
+            <com.lusfold.spinnerloading.SpinnerLoading
+                android:id="@+id/spinner_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/activity_detail_title_margin_bottom"
-                android:layout_marginTop="@dimen/activity_detail_title_margin_top"
-                android:text="@string/detail_title_photos"
-                android:textAppearance="@style/TextAppearance.OpenSans.Semibold"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/text_size_default" />
+                android:layout_centerHorizontal="true"
+                android:visibility="visible" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerview_detail_photos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/activity_detail_title_margin_bottom"
-                android:layout_marginTop="@dimen/activity_detail_title_margin_top"
-                android:text="@string/detail_title_about"
-                android:textAppearance="@style/TextAppearance.OpenSans.Semibold"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/text_size_default" />
-
-            <TextView
-                android:id="@+id/textview_detail_about"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="26dp"
-                android:textAppearance="@style/TextAppearance.OpenSans.Light"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_default"
-                tools:text="TESTE" />
-
-            <com.app.myplaces.presentation.custom.CustomDetailInformation
-                android:id="@+id/custom_detail_information_time"
+            <LinearLayout
+                android:id="@+id/linearlayout_detail_info_content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_detail_time_margin_top"
-                app:detail_icon="@drawable/ic_time" />
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_detail_default_margin_left"
+                android:visibility="gone">
 
-            <com.app.myplaces.presentation.custom.CustomDetailInformation
-                android:id="@+id/custom_detail_information_phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_detail_phone_margin_top"
-                app:detail_icon="@drawable/ic_phone" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_detail_title_margin_bottom"
+                    android:layout_marginTop="@dimen/activity_detail_title_margin_top"
+                    android:text="@string/detail_title_photos"
+                    android:textAppearance="@style/TextAppearance.OpenSans.Semibold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_default" />
 
-            <com.app.myplaces.presentation.custom.CustomDetailInformation
-                android:id="@+id/custom_detail_information_location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_detail_location_margin_top"
-                app:detail_icon="@drawable/ic_pin" />
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerview_detail_photos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/activity_detail_title_margin_bottom"
-                android:layout_marginTop="@dimen/activity_detail_title_margin_top"
-                android:text="@string/detail_title_review"
-                android:textAppearance="@style/TextAppearance.OpenSans.Semibold"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/text_size_default" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_detail_title_margin_bottom"
+                    android:layout_marginTop="@dimen/activity_detail_title_margin_top"
+                    android:text="@string/detail_title_about"
+                    android:textAppearance="@style/TextAppearance.OpenSans.Semibold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_default" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerview_detail_reviews"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/textview_detail_about"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="26dp"
+                    android:textAppearance="@style/TextAppearance.OpenSans.Light"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_default"
+                    tools:text="TESTE" />
 
-            <TextView
-                android:id="@+id/textview_detail_review_qtde"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginBottom="@dimen/activity_detail_title_margin_top"
-                android:layout_marginRight="@dimen/activity_detail_default_margin_left"
-                android:layout_marginTop="@dimen/activity_detail_title_margin_top"
-                android:drawablePadding="@dimen/activity_detail_review_qtde_drawable_padding"
-                android:drawableRight="@drawable/ic_arrows"
-                android:textColor="@color/colorPrimary"
-                tools:text="ver todos os 146 reviews" />
+                <com.app.myplaces.presentation.custom.CustomDetailInformation
+                    android:id="@+id/custom_detail_information_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_detail_time_margin_top"
+                    app:detail_icon="@drawable/ic_time" />
 
-        </LinearLayout>
+                <com.app.myplaces.presentation.custom.CustomDetailInformation
+                    android:id="@+id/custom_detail_information_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_detail_phone_margin_top"
+                    app:detail_icon="@drawable/ic_phone" />
+
+                <com.app.myplaces.presentation.custom.CustomDetailInformation
+                    android:id="@+id/custom_detail_information_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_detail_location_margin_top"
+                    app:detail_icon="@drawable/ic_pin" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_detail_title_margin_bottom"
+                    android:layout_marginTop="@dimen/activity_detail_title_margin_top"
+                    android:text="@string/detail_title_review"
+                    android:textAppearance="@style/TextAppearance.OpenSans.Semibold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_default" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerview_detail_reviews"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/textview_detail_review_qtde"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginBottom="@dimen/activity_detail_title_margin_top"
+                    android:layout_marginRight="@dimen/activity_detail_default_margin_left"
+                    android:layout_marginTop="@dimen/activity_detail_title_margin_top"
+                    android:drawablePadding="@dimen/activity_detail_review_qtde_drawable_padding"
+                    android:drawableRight="@drawable/ic_arrows"
+                    android:textColor="@color/colorPrimary"
+                    tools:text="ver todos os 146 reviews" />
+
+            </LinearLayout>
+        </RelativeLayout>
 
     </android.support.v4.widget.NestedScrollView>
 

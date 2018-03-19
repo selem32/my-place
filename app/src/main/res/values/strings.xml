@@ -11,4 +11,10 @@
     <string name="profile_user_email">selem32@gmail.com</string>
     <string name="profile_user_phone">(31) 99432-7718</string>
     <string name="profile_user_location">Belo Horizonte - MG</string>
+    <string name="share">Compartilhar</string>
+    <string name="detail_share_name">Compartilhe este lugar</string>
+    <string name="default_network_error">Conecte seu celular à rede internet e tente novamente.</string>
+    <string name="service_error">Estamos com intermitência em nossos servidores. Tente novamente.</string>
+    <string name="generic_error">Não conseguimos processar sua solicitação. Tente novamente.</string>
+    <string name="icon_bad_error">:(</string>
 </resources>

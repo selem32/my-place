@@ -73,6 +73,8 @@ dependencies {
 
     compile 'com.mikhaellopez:circularimageview:3.0.2'
 
+    compile "com.lusfold.spinnerloading:library:$rootProject.spinnerloading"
+
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
 
     androidTestImplementation "com.android.support.test:runner:$rootProject.ext.testRunner"

@@ -19,6 +19,7 @@ import com.app.myplaces.R;
 import com.app.myplaces.intrastructure.error.OperationError;
 import com.app.myplaces.intrastructure.util.ImageExtraUtil;
 import com.app.myplaces.intrastructure.util.ScreenUtil;
+import com.app.myplaces.presentation.base.BaseActivity;
 import com.app.myplaces.presentation.base.BaseFragment;
 import com.app.myplaces.presentation.detail.DetailActivity;
 import com.app.myplaces.service.model.location.LocationItem;
@@ -85,12 +86,18 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
 
     @Override
     public void showError(OperationError error) {
-        //TODO
+        ((BaseActivity) getActivity()).showError(error, () -> {
+            mPresenter.callPullListService();
+        });
     }
 
     @Override
     public void showLoading(boolean isLoading) {
-        //TODO
+        if (isLoading) {
+            ((BaseActivity) getActivity()).showProgress();
+        } else {
+            ((BaseActivity) getActivity()).hideProgress();
+        }
     }
 
     @Override

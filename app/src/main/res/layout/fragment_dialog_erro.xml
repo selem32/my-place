@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/dialog_error_defaul_margin">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/icon_bad_error"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_giant_size" />
+
+    <TextView
+        android:id="@+id/textview_dialog_error_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dialog_error_defaul_margin"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_large_size"
+        tools:text="erro" />
+
+    <Button
+        android:id="@+id/error_button_try_again"
+        style="@style/ButtonAppTheme"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dialog_error_defaul_margin"
+        android:text="tentar novamente" />
+
+</LinearLayout>
