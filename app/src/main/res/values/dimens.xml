@@ -12,6 +12,8 @@
     <dimen name="text_size_default">16sp</dimen>
     <dimen name="text_size_small">14sp</dimen>
     <dimen name="text_size_very_small">12sp</dimen>
+    <dimen name="text_size_big">36sp</dimen>
+
 
     <!-- Item Location -->
     <dimen name="item_location_default_margin">8dp</dimen>
@@ -27,23 +29,27 @@
     <dimen name="activity_detail_collapsing_height">400dp</dimen>
     <dimen name="activity_detail_collapsing_default_margin">16dp</dimen>
     <dimen name="activity_detail_imageview_height">300dp</dimen>
+    <dimen name="activity_detail_default_margin_left">26dp</dimen>
+    <dimen name="activity_detail_title_margin_bottom">16dp</dimen>
+    <dimen name="activity_detail_title_margin_top">32dp</dimen>
+    <dimen name="activity_detail_review_star_height">16dp</dimen>
+    <dimen name="activity_detail_review_star_width">16dp</dimen>
+    <dimen name="activity_detail_review_star_text_margin">10dp</dimen>
+    <dimen name="activity_detail_review_star_margin_right">7dp</dimen>
+    <dimen name="activity_detail_time_margin_top">18dp</dimen>
+    <dimen name="activity_detail_phone_margin_top">22dp</dimen>
+    <dimen name="activity_detail_location_margin_top">19dp</dimen>
+    <dimen name="activity_detail_review_qtde_drawable_padding">8dp</dimen>
 
     <!-- Custom Star -->
     <dimen name="custom_star_default_margin">3dp</dimen>
+
+    <!-- Item Detail Photo -->
     <dimen name="item_detail_photo_width">60dp</dimen>
     <dimen name="item_detail_photo_height">60dp</dimen>
     <dimen name="item_detail_photo_radius">8dp</dimen>
-    <dimen name="detail_default_margin_left">26dp</dimen>
-    <dimen name="activity_detail_title_margin_bottom">16dp</dimen>
-    <dimen name="activity_detail_title_margin_top">32dp</dimen>
-    <dimen name="detail_review_star_height">16dp</dimen>
-    <dimen name="detail_review_star_width">16dp</dimen>
-    <dimen name="detail_review_star_text_margin">10dp</dimen>
-    <dimen name="detail_review_star_margin_right">7dp</dimen>
-    <dimen name="custom_detail_information_text_margin_left">10dp</dimen>
-    <dimen name="detail_time_margin_top">18dp</dimen>
-    <dimen name="detail_phone_margin_top">22dp</dimen>
-    <dimen name="detail_location_margin_top">19dp</dimen>
+
+    <!-- Item Review -->
     <dimen name="item_review_margin_bottom">36dp</dimen>
     <dimen name="item_review_avatar_size">50dp</dimen>
     <dimen name="item_review_avatar_radius">30dp</dimen>
@@ -51,5 +57,25 @@
     <dimen name="item_review_info_contet_margin_left">16dp</dimen>
     <dimen name="item_review_info_contet_margin_right">26dp</dimen>
     <dimen name="item_review_title_margin_top">7dp</dimen>
+
+    <!-- Custom Detail Information -->
+    <dimen name="custom_detail_information_text_margin_left">10dp</dimen>
+
+    <!-- Profile -->
+    <dimen name="profile_line_height">1dp</dimen>
+    <dimen name="profile_line_margin_left">38dp</dimen>
+    <dimen name="profile_line_margin_top">16dp</dimen>
+    <dimen name="profile_user_info_margin_top">13dp</dimen>
+    <dimen name="profile_user_info_drawable_padding">26dp</dimen>
+    <dimen name="profile_content_user_info_margin_left">34dp</dimen>
+    <dimen name="profile_content_user_info_margin_top">342dp</dimen>
+    <dimen name="profile_image_background_margin_top">142dp</dimen>
+    <dimen name="profile_avatar_width">400dp</dimen>
+    <dimen name="profile_avatar_height">320dp</dimen>
+    <dimen name="profile_avatar_margin_top">-40dp</dimen>
+    <dimen name="profile_avatar_margin_right">-135dp</dimen>
+    <dimen name="profile_avatar_button_follow_height">36dp</dimen>
+    <dimen name="profile_avatar_button_follow_margin_top">32dp</dimen>
+
 
 </resources>

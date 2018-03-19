@@ -6,4 +6,9 @@
     <string name="detail_title_photos">FOTOS</string>
     <string name="detail_title_about">SOBRE</string>
     <string name="detail_title_review">REVIEW</string>
+    <string name="user_name">Selem\nAfonso</string>
+    <string name="profile_button_follow">SEGUIR</string>
+    <string name="profile_user_email">selem32@gmail.com</string>
+    <string name="profile_user_phone">(31) 99432-7718</string>
+    <string name="profile_user_location">Belo Horizonte - MG</string>
 </resources>

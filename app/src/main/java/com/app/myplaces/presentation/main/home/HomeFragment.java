@@ -3,6 +3,7 @@ package com.app.myplaces.presentation.main.home;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
@@ -12,10 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.app.myplaces.R;
 import com.app.myplaces.intrastructure.error.OperationError;
 import com.app.myplaces.intrastructure.util.ImageExtraUtil;
+import com.app.myplaces.intrastructure.util.ScreenUtil;
 import com.app.myplaces.presentation.base.BaseFragment;
 import com.app.myplaces.presentation.detail.DetailActivity;
 import com.app.myplaces.service.model.location.LocationItem;
@@ -32,6 +35,12 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     RecyclerView mRecyclerviewItemList;
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
+    @BindView(R.id.linearlayout_home_main_content)
+    LinearLayout mLinearlayoutMainContent;
+    @BindView(R.id.view_home_status)
+    View mViewStatus;
+    @BindView(R.id.toolbar_container)
+    AppBarLayout mToolbarContainer;
     private Unbinder mUnbinder;
     private HomeContract.Presenter mPresenter;
 
@@ -42,12 +51,19 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.home_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
         mUnbinder = ButterKnife.bind(this, view);
-
+        configViewSize();
         mToolbar.setTitle(R.string.home_title);
         configRecyclerView();
         return view;
+    }
+
+    private void configViewSize() {
+        ViewGroup.LayoutParams params = mViewStatus.getLayoutParams();
+        params.height = ScreenUtil.getStatusBarHeight(getContext());
+        mViewStatus.setLayoutParams(params);
+
     }
 
     @Override
@@ -88,7 +104,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
 
     @Override
     public void showLocationList(HomeAdapter adapter) {
-        mRecyclerviewItemList.setAdapter(adapter);
+        if (mRecyclerviewItemList != null) {
+            mRecyclerviewItemList.setAdapter(adapter);
+        }
     }
 
     private void configRecyclerView() {

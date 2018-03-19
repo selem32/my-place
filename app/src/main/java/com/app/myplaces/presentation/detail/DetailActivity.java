@@ -65,6 +65,7 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
         ButterKnife.bind(this);
         configCollapsing();
         LocationItem locationItem = getIntent().getExtras().getParcelable(Constants.ARGUMENT_LOCATION_ITEM);
+        configToolbarDefault(mToolbar);
 
         mRecyclerViewPhotos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         mRecyclerviewReviews.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));

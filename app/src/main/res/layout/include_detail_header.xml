@@ -42,12 +42,12 @@
             android:layout_marginBottom="@dimen/activity_detail_collapsing_default_margin"
             android:layout_marginLeft="@dimen/activity_detail_collapsing_default_margin"
             android:background="@android:color/transparent"
-            app:star_height="@dimen/detail_review_star_height"
-            app:star_margin_right="@dimen/detail_review_star_margin_right"
+            app:star_height="@dimen/activity_detail_review_star_height"
+            app:star_margin_right="@dimen/activity_detail_review_star_margin_right"
             app:star_review_text_color="@android:color/white"
-            app:star_review_text_margin="@dimen/detail_review_star_text_margin"
+            app:star_review_text_margin="@dimen/activity_detail_review_star_text_margin"
             app:star_review_text_size="@dimen/text_size_small"
-            app:star_width="@dimen/detail_review_star_width" />
+            app:star_width="@dimen/activity_detail_review_star_width" />
 
     </android.support.design.widget.CollapsingToolbarLayout>
 

@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingLeft="@dimen/detail_default_margin_left">
+            android:paddingLeft="@dimen/activity_detail_default_margin_left">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -58,21 +58,21 @@
                 android:id="@+id/custom_detail_information_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/detail_time_margin_top"
+                android:layout_marginTop="@dimen/activity_detail_time_margin_top"
                 app:detail_icon="@drawable/ic_time" />
 
             <com.app.myplaces.presentation.custom.CustomDetailInformation
                 android:id="@+id/custom_detail_information_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/detail_phone_margin_top"
+                android:layout_marginTop="@dimen/activity_detail_phone_margin_top"
                 app:detail_icon="@drawable/ic_phone" />
 
             <com.app.myplaces.presentation.custom.CustomDetailInformation
                 android:id="@+id/custom_detail_information_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/detail_location_margin_top"
+                android:layout_marginTop="@dimen/activity_detail_location_margin_top"
                 app:detail_icon="@drawable/ic_pin" />
 
             <TextView
@@ -96,9 +96,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_marginBottom="@dimen/activity_detail_title_margin_top"
-                android:layout_marginRight="@dimen/detail_default_margin_left"
+                android:layout_marginRight="@dimen/activity_detail_default_margin_left"
                 android:layout_marginTop="@dimen/activity_detail_title_margin_top"
-                android:drawablePadding="8dp"
+                android:drawablePadding="@dimen/activity_detail_review_qtde_drawable_padding"
                 android:drawableRight="@drawable/ic_arrows"
                 android:textColor="@color/colorPrimary"
                 tools:text="ver todos os 146 reviews" />
